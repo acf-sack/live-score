@@ -1,0 +1,10 @@
+language: java
+sudo: true
+script: skip
+deploy:
+  provider: heroku
+  app: sack-live-score
+  api_key: $HEROKU_KEY
+  on:
+    repo: acf-sack/live-score
+    branch: master
