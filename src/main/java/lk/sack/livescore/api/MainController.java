@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
+@CrossOrigin(origins = {"http://localhost:9000", "http://www.sack.lk", "https://www.sack.lk"})
 @RestController
 public class MainController {
     private Logger logger = LoggerFactory.getLogger(MainController.class);
