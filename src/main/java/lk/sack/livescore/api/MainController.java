@@ -25,17 +25,17 @@ public class MainController {
         String username = (String) payload.get("username");
         String password = (String) payload.get("password");
 
-        if(username == null || password == null){
+        if (username == null || password == null) {
             String message = "Username or password is not available";
             logger.warn(message);
             throw new UnauthorizedUserException(message);
         }
 
-        if(username.equals(System.getenv("LIVE_USERNAME")) && password.equals(System.getenv("LIVE_PASSWORD"))){
+        if (username.equals(System.getenv("LIVE_USERNAME")) && password.equals(System.getenv("LIVE_PASSWORD"))) {
             session.setAttribute("isAuthorizedUser", true);
             logger.info("User logged in to the platform");
             return "Logged in";
-        }else {
+        } else {
             String message = "Invalid credentials";
             logger.warn(message);
             throw new UnauthorizedUserException(message);
@@ -43,7 +43,7 @@ public class MainController {
     }
 
     @PostMapping("/logout")
-    private void logout(HttpServletRequest request){
+    private void logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
@@ -52,10 +52,19 @@ public class MainController {
 
     @PostMapping("/update-test-match")
     public void updateScore(HttpSession session, @RequestBody TestMatch match) throws UnauthorizedUserException {
-        if (session.getAttribute("isAuthorizedUser") != null && session.getAttribute("isAuthorizedUser").equals(true)){
+        if (session.getAttribute("isAuthorizedUser") != null && session.getAttribute("isAuthorizedUser").equals(true)) {
             // Send the payload to the websocket
             this.template.convertAndSend("/topic/test-match", match);
-        } else{
+        } else {
+            String message = "Unauthorized attempt to update the score";
+            logger.warn(message);
+            throw new UnauthorizedUserException(message);
+        }
+    }
+
+    @PostMapping("/user-status")
+    public void checkUserStatus(HttpSession session) throws UnauthorizedUserException {
+        if (session.getAttribute("isAuthorizedUser") == null || session.getAttribute("isAuthorizedUser").equals(false)) {
             String message = "Unauthorized attempt to update the score";
             logger.warn(message);
             throw new UnauthorizedUserException(message);
