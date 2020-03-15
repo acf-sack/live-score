@@ -52,6 +52,7 @@ Content-Type: application/json
         "score": 10,
         "overs": 2,
         "balls": 3,
+        "wickets":3,
         "playerOne": {
             "name": "Kusal Mendis",
             "isBatting": true
@@ -66,6 +67,7 @@ Content-Type: application/json
         "score": 10,
         "overs": 50,
         "balls": 0,
+        "wickets":3,
         "playerOne": {
             "name": "Kusal Mendis",
             "isBatting": true
@@ -80,6 +82,7 @@ Content-Type: application/json
         "score": 0,
         "overs": 0,
         "balls": 0,
+        "wickets":0,
         "playerOne": {
             "name": "",
             "isBatting": true
@@ -94,6 +97,7 @@ Content-Type: application/json
         "score": 0,
         "overs": 0,
         "balls": 0,
+        "wickets":0,
         "playerOne": {
             "name": "",
             "isBatting": true

@@ -6,6 +6,7 @@ public class Inning {
     int score;
     int overs;
     int balls;
+    int wickets;
     boolean isCurrentInning;
     Player playerOne;
     Player playerTwo;
@@ -17,6 +18,7 @@ public class Inning {
         this.score = score;
         this.overs = overs;
         this.balls = balls;
+        this.balls = wickets;
         this.isCurrentInning = isCurrentInning;
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
@@ -44,6 +46,14 @@ public class Inning {
 
     public void setBalls(int balls) {
         this.balls = balls;
+    }
+
+    public int getWickets() {
+        return wickets;
+    }
+
+    public void setWickets(int wickets) {
+        this.wickets = wickets;
     }
 
     public boolean isCurrentInning() {
