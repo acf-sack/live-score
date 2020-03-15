@@ -20,7 +20,7 @@
     ```
     java -jar target/livescore.jar
     ```
-- Visit your app at http://localhost:9000
+- Visit your app at http://localhost:9090
 
 ## API
 
@@ -47,28 +47,61 @@ Host: localhost:9090
 Content-Type: application/json
 
 {
+    "status": "lorem ipsum",
     "teamOneFirstInning": {
-        "score": 110,
+        "score": 10,
         "overs": 2,
         "balls": 3,
+        "playerOne": {
+            "name": "Kusal Mendis",
+            "isBatting": true
+        },
+        "playerTwo": {
+            "name": "Lasith Malinga",
+            "isBatting": false
+        },
         "currentInning": true
     },
     "teamTwoFirstInning": {
         "score": 10,
-        "overs": 5,
+        "overs": 50,
         "balls": 0,
+        "playerOne": {
+            "name": "Kusal Mendis",
+            "isBatting": true
+        },
+        "playerTwo": {
+            "name": "Lasith Malinga",
+            "isBatting": false
+        },
         "currentInning": false
     },
     "teamOneSecondInning": {
         "score": 0,
         "overs": 0,
         "balls": 0,
+        "playerOne": {
+            "name": "",
+            "isBatting": true
+        },
+        "playerTwo": {
+            "name": "",
+            "isBatting": false
+        },
         "currentInning": false
     },
     "teamTwoSecondInning": {
         "score": 0,
         "overs": 0,
         "balls": 0,
+        "playerOne": {
+            "name": "",
+            "isBatting": true
+        },
+        "playerTwo": {
+            "name": "",
+            "isBatting": false
+        },
         "currentInning": false
     }
 }

@@ -1,6 +1,7 @@
 package lk.sack.livescore.beans;
 
 public class TestMatch {
+    String status;
     Inning teamOneFirstInning;
     Inning teamTwoFirstInning;
     Inning teamOneSecondInning;
@@ -9,11 +10,12 @@ public class TestMatch {
     public TestMatch() {
     }
 
-    public TestMatch(Inning teamOneFirstInning, Inning teamTwoFirstInning, Inning teamOneSecondInning, Inning teamTwoSecondInning) {
-        this.teamOneFirstInning = teamOneFirstInning;
-        this.teamTwoFirstInning = teamTwoFirstInning;
-        this.teamOneSecondInning = teamOneSecondInning;
-        this.teamTwoSecondInning = teamTwoSecondInning;
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Inning getTeamOneFirstInning() {
