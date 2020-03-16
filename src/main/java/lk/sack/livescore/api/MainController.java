@@ -63,11 +63,13 @@ public class MainController {
     }
 
     @PostMapping("/user-status")
-    public void checkUserStatus(HttpSession session) throws UnauthorizedUserException {
+    public String checkUserStatus(HttpSession session) throws UnauthorizedUserException {
         if (session.getAttribute("isAuthorizedUser") == null || session.getAttribute("isAuthorizedUser").equals(false)) {
-            String message = "Unauthorized attempt to update the score";
+            String message = "Unauthorized user";
             logger.warn(message);
             throw new UnauthorizedUserException(message);
+        }else{
+            return "Logged in";
         }
     }
 }
